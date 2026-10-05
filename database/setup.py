@@ -16,5 +16,9 @@ def setup_database() -> None:
 
         connection.commit()
 
+    except Exception:
+        connection.rollback()
+        raise
+
     finally:
         connection.close()
